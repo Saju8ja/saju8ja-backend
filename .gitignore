@@ -1,0 +1,35 @@
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# Java/Kotlin build files
+*.class
+*.jar
+*.war
+*.ear
+*.db
+
+# Gradle files
+.gradle/
+build/
+out/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# Logs
+*.log
+logs/
+
+# .env file for environment variables (be careful)
+.env
+
+# Build directories for frontend (if any)
+node_modules/
+dist/
