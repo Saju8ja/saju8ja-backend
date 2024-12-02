@@ -11,8 +11,12 @@ spring:
     password: test123
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
+    generate-ddl: true
     hibernate:
-      ddl-auto: update # 운영 환경에서는 validate 또는 none 권장
+      ddl-auto: update
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
