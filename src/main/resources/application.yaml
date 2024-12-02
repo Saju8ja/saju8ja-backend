@@ -4,4 +4,15 @@ server:
 spring:
   config:
     activate:
-      on-profile: dev
+      on-profile: local
+  datasource:
+    url: jdbc:mysql://localhost:3306/saju8ja?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    username: test1234
+    password: test123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update # 운영 환경에서는 validate 또는 none 권장
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
