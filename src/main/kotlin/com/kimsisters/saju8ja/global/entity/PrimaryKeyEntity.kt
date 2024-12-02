@@ -34,9 +34,13 @@ abstract class PrimaryKeyEntity : Persistable<UUID> {
     }
 
     private fun getIdentifier(obj: Any): Serializable {
-        return if (obj is HibernateProxy) ({
-            obj.hibernateLazyInitializer.identifier
-        }) as Serializable else {
+        return if (obj is HibernateProxy) {
+            (
+                {
+                    obj.hibernateLazyInitializer.identifier
+                }
+            ) as Serializable
+        } else {
             (obj as PrimaryKeyEntity).id
         }
     }

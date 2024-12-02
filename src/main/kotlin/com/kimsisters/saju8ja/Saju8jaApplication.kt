@@ -7,5 +7,5 @@ import org.springframework.boot.runApplication
 class Saju8jaApplication
 
 fun main(args: Array<String>) {
-	runApplication<Saju8jaApplication>(*args)
+    runApplication<Saju8jaApplication>(*args)
 }
