@@ -30,6 +30,7 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	implementation("org.flywaydb:flyway-mysql")
 	implementation("com.github.f4b6a3:ulid-creator:5.2.3")
+	implementation("io.github.microutils:kotlin-logging:3.0.5")
 
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
