@@ -6,5 +6,5 @@ import org.springframework.stereotype.Component
 
 @Component
 interface PostUseCase {
-    fun create(input: PostRequest.CreatePost) : PostResponse.Post
+    fun create(input: PostRequest.CreatePost): PostResponse.Post
 }

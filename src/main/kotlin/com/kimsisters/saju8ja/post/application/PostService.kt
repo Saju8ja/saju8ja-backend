@@ -12,17 +12,18 @@ import java.time.ZoneOffset
 
 class PostService(
     private val getCategoryPort: GetCategoryPort,
-    private val createPort: CreatePostPort
+    private val createPort: CreatePostPort,
 ) : PostUseCase {
-    override fun create(input: PostRequest.CreatePost) : PostResponse.Post {
+    override fun create(input: PostRequest.CreatePost): PostResponse.Post {
         val category = getCategoryPort.getCategory(input.categoryId)
-        val post = Post(
-            category = category,
-            title = input.title,
-            content = input.content,
-            createdBy = input.createdBy,
-            createdAt = LocalDate.now().toEpochSecond(LocalTime.now(), ZoneOffset.UTC)
-        )
+        val post =
+            Post(
+                category = category,
+                title = input.title,
+                content = input.content,
+                createdBy = input.createdBy,
+                createdAt = LocalDate.now().toEpochSecond(LocalTime.now(), ZoneOffset.UTC),
+            )
         return PostResponse.Post(createPort.save(post).id.toString())
     }
 }

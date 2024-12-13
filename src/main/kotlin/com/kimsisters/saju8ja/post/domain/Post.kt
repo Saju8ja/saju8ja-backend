@@ -8,5 +8,5 @@ class Post(
     val title: String,
     val content: String,
     val createdBy: String,
-    val createdAt: Long
+    val createdAt: Long,
 )

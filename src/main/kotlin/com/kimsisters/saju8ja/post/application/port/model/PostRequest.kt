@@ -5,6 +5,6 @@ class PostRequest {
         val categoryId: String,
         val title: String,
         val content: String,
-        val createdBy: String
+        val createdBy: String,
     )
 }

@@ -10,18 +10,19 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController(value = "v1/posts")
 class PostController(
-    private val useCase: PostUseCase
+    private val useCase: PostUseCase,
 ) {
     @PostMapping
     fun create(
-        @RequestBody request: PostWebRequest.CreatePost
-    ) : PostWebResponse.CreatePost {
-        val input = PostRequest.CreatePost(
-            categoryId = request.categoryId,
-            title = request.title,
-            content = request.content,
-            createdBy = request.createdBy
-        )
+        @RequestBody request: PostWebRequest.CreatePost,
+    ): PostWebResponse.CreatePost {
+        val input =
+            PostRequest.CreatePost(
+                categoryId = request.categoryId,
+                title = request.title,
+                content = request.content,
+                createdBy = request.createdBy,
+            )
         val output = useCase.create(input)
         return PostWebResponse.CreatePost(output.id)
     }
