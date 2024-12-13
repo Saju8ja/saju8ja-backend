@@ -6,4 +6,8 @@ class PostWebRequest {
         val content: String,
         val createdBy: String,
     )
+
+    data class SearchPost(
+        val title: String?,
+    )
 }

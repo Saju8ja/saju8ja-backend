@@ -40,4 +40,14 @@ class PostController(
         val output = useCase.getPosts(categoryId)
         return ApiResponse.okData(output.toGetPostsResponse())
     }
+
+    @PostMapping("/search")
+    fun searchPosts(
+        @PathVariable("category_id") categoryId: String,
+        @RequestBody request: PostWebRequest.SearchPost
+    ): ResponseEntity<ApiResponse<PostWebResponse.GetPosts>> {
+        val input = PostRequest.SearchPost(request.title)
+        val output = useCase.searchPosts(categoryId, input)
+        return ApiResponse.okData(output.toGetPostsResponse())
+    }
 }

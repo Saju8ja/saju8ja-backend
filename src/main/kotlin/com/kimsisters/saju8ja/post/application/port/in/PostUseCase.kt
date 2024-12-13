@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component
 
 @Component
 interface PostUseCase {
-    fun create(input: PostRequest.CreatePost): PostResponse.Post
+    fun create(command: PostRequest.CreatePost): PostResponse.Post
     fun getPosts(categoryId: String): PostResponse.GetPosts
+    fun searchPosts(categoryId: String, command: PostRequest.SearchPost): PostResponse.GetPosts
 }
