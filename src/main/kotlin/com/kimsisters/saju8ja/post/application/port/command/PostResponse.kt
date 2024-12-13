@@ -1,7 +1,7 @@
-package com.kimsisters.saju8ja.post.adapter.`in`.model
+package com.kimsisters.saju8ja.post.application.port.command
 
-class PostWebResponse {
-    data class CreatePost(
+class PostResponse {
+    data class Post(
         val id: String,
     )
 
@@ -9,8 +9,10 @@ class PostWebResponse {
         val posts: List<Post>
     ) {
         data class Post(
+            val categoryId: String,
             val id: String,
             val title: String,
+            val content: String,
             val createdBy: String?,
             val createdAt: Long,
             val views: Int

@@ -1,4 +1,4 @@
-package com.kimsisters.saju8ja.post.application.port.model
+package com.kimsisters.saju8ja.post.application.port.command
 
 class PostRequest {
     data class CreatePost(

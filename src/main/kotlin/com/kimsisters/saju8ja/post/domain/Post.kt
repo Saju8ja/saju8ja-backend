@@ -9,4 +9,5 @@ class Post(
     val content: String,
     val createdBy: String,
     val createdAt: Long,
+    val views: Int = 0
 )
