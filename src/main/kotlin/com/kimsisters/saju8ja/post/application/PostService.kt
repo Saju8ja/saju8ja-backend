@@ -38,7 +38,7 @@ class PostService(
 
     override fun searchPosts(categoryId: String, command: PostRequest.SearchPost): PostResponse.GetPosts {
         val category = getCategoryPort.getCategory(categoryId)
-        val posts = getPort.searchPosts(category, command.title)
+        val posts = getPort.searchPosts(category, command.id, command.titleKeyword)
         return posts.toGetPostsPortMapper()
     }
 }

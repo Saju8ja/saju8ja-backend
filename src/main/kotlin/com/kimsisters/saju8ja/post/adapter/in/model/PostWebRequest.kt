@@ -8,6 +8,7 @@ class PostWebRequest {
     )
 
     data class SearchPost(
-        val title: String?,
+        val id: String?,
+        val titleKeyword: String?,
     )
 }
