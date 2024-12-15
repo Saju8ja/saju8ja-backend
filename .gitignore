@@ -33,5 +33,3 @@ logs/
 # Build directories for frontend (if any)
 node_modules/
 dist/
-
-!/port/out
