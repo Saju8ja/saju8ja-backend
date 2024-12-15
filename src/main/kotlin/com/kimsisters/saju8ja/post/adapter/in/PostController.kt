@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
+import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
-@RestController(value = "v1/categories/{category_id}/posts")
+@RestController
+@RequestMapping("v1/categories/{category_id}/posts")
 class PostController(
     private val useCase: PostUseCase,
 ) {
@@ -38,6 +40,16 @@ class PostController(
         @PathVariable("category_id") categoryId: String
     ): ResponseEntity<ApiResponse<PostWebResponse.GetPosts>> {
         val output = useCase.getPosts(categoryId)
+        return ApiResponse.okData(output.toGetPostsResponse())
+    }
+
+    @PostMapping("/search")
+    fun searchPosts(
+        @PathVariable("category_id") categoryId: String,
+        @RequestBody request: PostWebRequest.SearchPost
+    ): ResponseEntity<ApiResponse<PostWebResponse.GetPosts>> {
+        val input = PostRequest.SearchPost(request.id, request.titleKeyword)
+        val output = useCase.searchPosts(categoryId, input)
         return ApiResponse.okData(output.toGetPostsResponse())
     }
 }

@@ -7,4 +7,9 @@ class PostRequest {
         val content: String,
         val createdBy: String,
     )
+
+    data class SearchPost(
+        val id: String?,
+        val titleKeyword: String?
+    )
 }
